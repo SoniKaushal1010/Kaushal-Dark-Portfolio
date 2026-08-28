@@ -1,7 +1,6 @@
 import { Link } from "react-scroll";
 import { Link as RouterLink } from "react-router-dom";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
-import { RiAdminLine } from "react-icons/ri";
 import { BsSun, BsMoon } from "react-icons/bs";
 import {
   FcHome,
@@ -33,24 +32,19 @@ const Sidebar = ({ open, setOpen }) => {
         open ? "w-36 sm:w-56" : "w-16"
       }`}
     >
-      <div className="flex justify-between items-center p-3 shrink-0">
-        <button onClick={toggleTheme} className="text-gray-300 light:text-gray-600">
-          {darkMode ? <BsSun size={18} /> : <BsMoon size={18} />}
-        </button>
+      <div className="flex justify-end items-center p-3 shrink-0">
         <button onClick={() => setOpen(!open)} className="text-gray-300 light:text-gray-600">
           {open ? <AiOutlineDoubleLeft size={22} /> : <AiOutlineDoubleRight size={22} />}
         </button>
       </div>
 
-      {open && (
-        <div className="flex justify-center mb-6 shrink-0">
-          <img
-            src="/profile.jpg"
-            alt="profile"
-            className="w-20 h-20 rounded-full object-cover border-2 border-gray-700 light:border-gray-300"
-          />
-        </div>
-      )}
+      <RouterLink to="/admin/login" className="flex justify-center mb-6 shrink-0">
+        <img
+          src="/profile.jpg"
+          alt="profile"
+          className="w-20 h-20 rounded-full object-cover border-2 border-gray-700 light:border-gray-300 cursor-pointer hover:opacity-80 transition-opacity"
+        />
+      </RouterLink>
 
       <nav className="flex flex-col gap-2 px-2 flex-1">
         {navItems.map((item) => (
@@ -71,13 +65,13 @@ const Sidebar = ({ open, setOpen }) => {
         ))}
       </nav>
 
-      <RouterLink
-        to="/admin/login"
+      <button
+        onClick={toggleTheme}
         className="flex items-center gap-3 px-3 py-3 mx-2 mb-4 rounded-lg hover:bg-gray-800 light:hover:bg-gray-100 transition-colors border-t border-gray-800 light:border-gray-200 pt-4 shrink-0"
       >
-        <RiAdminLine size={20} />
-        {open && <span className="text-sm">Admin</span>}
-      </RouterLink>
+        {darkMode ? <BsSun size={20} /> : <BsMoon size={20} />}
+        {open && <span className="text-sm">{darkMode ? "Light Mode" : "Dark Mode"}</span>}
+      </button>
     </div>
   );
 };
