@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar";
 import Home from "../../pages/Home";
 
 const Layout = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="flex bg-gray-950 light:bg-white min-h-screen">
