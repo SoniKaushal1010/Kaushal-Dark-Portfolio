@@ -29,11 +29,11 @@ const Sidebar = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`h-screen bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col transition-all duration-300 z-50 ${
+      className={`h-screen bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col overflow-y-auto transition-all duration-300 z-50 ${
         open ? "w-56" : "w-16"
       }`}
     >
-      <div className="flex justify-between items-center p-3">
+      <div className="flex justify-between items-center p-3 shrink-0">
         <button onClick={toggleTheme} className="text-gray-300 light:text-gray-600">
           {darkMode ? <BsSun size={18} /> : <BsMoon size={18} />}
         </button>
@@ -43,7 +43,7 @@ const Sidebar = ({ open, setOpen }) => {
       </div>
 
       {open && (
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-6 shrink-0">
           <img
             src="/profile.jpg"
             alt="profile"
@@ -52,7 +52,7 @@ const Sidebar = ({ open, setOpen }) => {
         </div>
       )}
 
-      <nav className="flex flex-col gap-2 px-2 flex-1">
+      <nav className="flex flex-col gap-2 px-2 shrink-0">
         {navItems.map((item) => (
           <Link
             key={item.to}
@@ -61,6 +61,7 @@ const Sidebar = ({ open, setOpen }) => {
             smooth={true}
             offset={-80}
             duration={400}
+            onClick={() => setOpen(false)}
             className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-800 light:hover:bg-gray-100 transition-colors"
           >
             <span className="text-xl">{item.icon}</span>
@@ -69,9 +70,11 @@ const Sidebar = ({ open, setOpen }) => {
         ))}
       </nav>
 
+      <div className="flex-1" />
+
       <RouterLink
         to="/admin/login"
-        className="flex items-center gap-3 px-3 py-3 mx-2 mb-4 rounded-lg hover:bg-gray-800 light:hover:bg-gray-100 transition-colors border-t border-gray-800 light:border-gray-200 pt-4"
+        className="flex items-center gap-3 px-3 py-3 mx-2 mb-4 rounded-lg hover:bg-gray-800 light:hover:bg-gray-100 transition-colors border-t border-gray-800 light:border-gray-200 pt-4 shrink-0"
       >
         <RiAdminLine size={20} />
         {open && <span className="text-sm">Admin</span>}
