@@ -52,7 +52,7 @@ const Sidebar = ({ open, setOpen }) => {
         </div>
       )}
 
-      <nav className="flex flex-col gap-2 px-2 flex-1 min-h-0 overflow-y-auto">
+      <nav className="flex flex-col gap-2 px-2 flex-1">
         {navItems.map((item) => (
           <Link
             key={item.to}
