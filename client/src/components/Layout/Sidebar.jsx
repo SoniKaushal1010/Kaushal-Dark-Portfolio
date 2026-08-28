@@ -29,7 +29,7 @@ const Sidebar = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`h-dvh bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col overflow-y-auto transition-all duration-300 z-50 ${
+      className={`h-dvh bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col transition-all duration-300 z-50 ${
         open ? "w-56" : "w-16"
       }`}
     >
@@ -52,7 +52,7 @@ const Sidebar = ({ open, setOpen }) => {
         </div>
       )}
 
-      <nav className="flex flex-col gap-2 px-2 shrink-0">
+      <nav className="flex flex-col gap-2 px-2 flex-1 min-h-0 overflow-y-auto">
         {navItems.map((item) => (
           <Link
             key={item.to}
@@ -69,8 +69,6 @@ const Sidebar = ({ open, setOpen }) => {
           </Link>
         ))}
       </nav>
-
-      <div className="flex-1" />
 
       <RouterLink
         to="/admin/login"
