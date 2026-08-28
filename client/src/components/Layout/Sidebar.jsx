@@ -30,7 +30,7 @@ const Sidebar = ({ open, setOpen }) => {
   return (
     <div
       className={`h-full shrink-0 bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 flex flex-col transition-all duration-300 ${
-        open ? "w-56" : "w-16"
+        open ? "w-28 sm:w-56" : "w-16"
       }`}
     >
       <div className="flex justify-between items-center p-3 shrink-0">
