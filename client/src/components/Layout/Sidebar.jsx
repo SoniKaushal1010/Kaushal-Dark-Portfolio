@@ -42,7 +42,9 @@ const Sidebar = ({ open, setOpen }) => {
         <img
           src="/profile.jpg"
           alt="profile"
-          className="w-20 h-20 rounded-full object-cover border-2 border-gray-700 light:border-gray-300 cursor-pointer hover:opacity-80 transition-opacity"
+          className={`rounded-full object-cover border-2 border-gray-700 light:border-gray-300 cursor-pointer hover:opacity-80 transition-all duration-300 ${
+            open ? "w-20 h-20" : "w-10 h-10"
+          }`}
         />
       </RouterLink>
 
