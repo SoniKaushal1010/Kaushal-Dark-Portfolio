@@ -6,9 +6,12 @@ const Layout = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="flex bg-gray-950 light:bg-white min-h-svh">
+    <div
+      className="flex overflow-hidden bg-gray-950 light:bg-white"
+      style={{ height: "calc(var(--vh, 1vh) * 100)" }}
+    >
       <Sidebar open={open} setOpen={setOpen} />
-      <div className={`flex-1 transition-all duration-300 ${open ? "ml-56" : "ml-16"}`}>
+      <div id="scroll-container" className="flex-1 overflow-y-auto">
         <Home />
       </div>
     </div>

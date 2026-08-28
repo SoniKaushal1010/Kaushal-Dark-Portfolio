@@ -29,10 +29,9 @@ const Sidebar = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 flex flex-col transition-all duration-300 z-50 ${
+      className={`h-full shrink-0 bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 flex flex-col transition-all duration-300 ${
         open ? "w-56" : "w-16"
       }`}
-      style={{ height: "calc(var(--vh, 1vh) * 100)" }}
     >
       <div className="flex justify-between items-center p-3 shrink-0">
         <button onClick={toggleTheme} className="text-gray-300 light:text-gray-600">
@@ -58,9 +57,10 @@ const Sidebar = ({ open, setOpen }) => {
           <Link
             key={item.to}
             to={item.to}
+            containerId="scroll-container"
             spy={true}
             smooth={true}
-            offset={-80}
+            offset={-20}
             duration={400}
             onClick={() => setOpen(false)}
             className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer hover:bg-gray-800 light:hover:bg-gray-100 transition-colors"
