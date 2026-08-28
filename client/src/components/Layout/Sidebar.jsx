@@ -29,7 +29,7 @@ const Sidebar = ({ open, setOpen }) => {
 
   return (
     <div
-      className={`h-dvh bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col transition-all duration-300 z-50 ${
+      className={`h-svh bg-gray-900 light:bg-white light:border-r light:border-gray-200 text-gray-200 light:text-gray-800 fixed left-0 top-0 flex flex-col transition-all duration-300 z-50 ${
         open ? "w-56" : "w-16"
       }`}
     >
